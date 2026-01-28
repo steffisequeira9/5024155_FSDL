@@ -7,26 +7,43 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: hsl(293, 42%, 63%);
         }
 
         .box {
-            width: 300px;
-            margin: 100px auto;
-            background: white;
+            width: 600px;
+            margin: 80px auto;
+            background: rgb(150, 138, 219);
             padding: 20px;
             text-align: center;
             border-radius: 6px;
-            box-shadow: 0 0 5px gray;
+            box-shadow: 0 0 5px rgb(34, 7, 22);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .column {
+            width: 45%;
+            border: 1px dashed rgb(42, 113, 146);
+            padding: 15px;
+            border-radius: 5px;
         }
 
         button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
+            background-color: #e27297;
+            color: rgb(185, 236, 228);
+            border: blueviolet;
             padding: 8px 15px;
             margin-top: 10px;
             cursor: pointer;
+        }
+
+        h4 {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -35,11 +52,31 @@
 
     <div class="box">
         <h3>Resume Screening</h3>
+        <p>Select an option</p>
 
-        <!-- INLINE CSS -->
-        <input type="file" style="margin-bottom:10px;"><br>
+        <div class="row">
 
-        <button>Check Match</button>
+            <!-- COLUMN 1 -->
+            <div class="column">
+                <h4>Create Resume</h4>
+                <p style="font-size:13px;">Use our standard format</p>
+                <button>Create Resume</button>
+            </div>
+
+            <!-- COLUMN 2 -->
+            <div class="column">
+                <h4>Upload Resume</h4>
+
+                <p style="font-size:13px;">Single Resume</p>
+                <input type="file"><br><br>
+
+                <p style="font-size:13px;">Multiple Resumes</p>
+                <input type="file" multiple>
+            </div>
+
+        </div>
+
+        <button style="margin-top:20px;">Check Match</button>
 
         <p style="margin-top:15px;"><b>Score:</b> 75%</p>
     </div>
