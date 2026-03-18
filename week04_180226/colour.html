@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Block Color Change - JS Practical</title>
+    
+        <style>
+                #block {
+                            width: 200px;
+                                        height: 200px;
+                                                    background-color: red;
+                                                                margin: 20px;
+                                                                        }
+                                                                            </style>
+                                                                            </head>
+                                                                            
+                                                                            <body>
+                                                                            
+                                                                                <h2>Click Button to Change Block Color</h2>
+                                                                                
+                                                                                    <div id="block"></div>
+                                                                                    
+                                                                                        <button onclick="changeColor()">Change Color</button>
+                                                                                        
+                                                                                            <script>
+                                                                                                    // Variable
+                                                                                                            let colors = ["red", "blue", "green", "orange"];
+                                                                                                                    let index = 0;
+                                                                                                                    
+                                                                                                                            // Function
+                                                                                                                                    function changeColor() {
+                                                                                                                                    
+                                                                                                                                                console.log("Button Clicked");
+                                                                                                                                                
+                                                                                                                                                            // Operator + Condition
+                                                                                                                                                                        if (index >= colors.length - 1) {
+                                                                                                                                                                                        index = 0;
+                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                    index++;
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                            // Change block color
+                                                                                                                                                                                                                                                        document.getElementById("block").style.backgroundColor = colors[index];
+                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                    console.log("Current Color:", colors[index]);
+                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                    // Loop Example
+                                                                                                                                                                                                                                                                                            for (let i = 0; i < colors.length; i++) {
+                                                                                                                                                                                                                                                                                                        console.log("Available Color:", colors[i]);
+                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                    </script>
+                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                    </body>
+                                                                                                                                                                                                                                                                                                                    </html>
+                                                                                                                                                                                                                                                                                                                    >

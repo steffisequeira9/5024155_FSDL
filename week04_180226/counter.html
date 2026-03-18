@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Counter</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        }
+
+        h2 {
+            color: darkblue;
+        }
+
+        #counter {
+            font-size: 50px;
+            margin: 20px;
+            color: white;
+            background-color: black;
+            display: inline-block;
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .inc {
+            background-color: green;
+            color: white;
+        }
+
+        .dec {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Colorful Counter</h2>
+
+    <div id="counter">0</div>
+
+    <br>
+
+    <button class="inc" onclick="increment()">Increment</button>
+    <button class="dec" onclick="decrement()">Decrement</button>
+
+    <script>
+        // Variable
+        let count = 0;
+
+        // Function to update screen
+        function updateDisplay() {
+            document.getElementById("counter").innerText = count;
+        }
+
+        // Increment Function
+        function increment() {
+            count++;  // Operator
+            console.log("Incremented:", count);
+
+            // Condition
+            if (count >= 10) {
+                console.log("Counter reached 10 or more!");
+            }
+
+            updateDisplay();
+        }
+
+        // Decrement Function
+        function decrement() {
+            count--;  // Operator
+            console.log("Decremented:", count);
+
+            // Condition
+            if (count < 0) {
+                console.log("Counter is negative!");
+            }
+
+            updateDisplay();
+        }
+
+        // Loop Example (just to show loop usage)
+        for (let i = 1; i <= 3; i++) {
+            console.log("Counter Ready:", i);
+        }
+
+    </script>
+
+</body>
+</html>
