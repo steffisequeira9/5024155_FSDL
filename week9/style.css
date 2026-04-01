@@ -1,0 +1,84 @@
+/* Background Gradient */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+}
+
+/* Container */
+.container {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Headings */
+h1 {
+    color: #2c3e50;
+}
+
+h2 {
+    color: #34495e;
+}
+
+/* Input Fields */
+input {
+    padding: 10px;
+    margin: 6px 0;
+    width: 90%;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: #f1f2f6;
+}
+
+/* Form Box */
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Student List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgb(128, 65, 209);
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(14, 207, 78, 0.1);
+}
+
+/* Delete Button */
+li button {
+    float: right;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+/* Error */
+.error {
+    color: red;
+    font-size: 12px;
+}

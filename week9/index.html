@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="studentApp">
+<head>
+    <title>AngularJS Hello World</title>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script src="app.js"></script>
+<link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input { margin: 5px; }
+        .error { color: red; }
+    </style>
+</head>
+
+<body ng-controller="MainController">
+
+    <!-- Hello World -->
+    <h1>Hello {{name || 'World'}} 👋</h1>
+
+    <input type="text" ng-model="name" placeholder="Enter your name">
+
+    <hr>
+
+    <!-- Student Form -->
+    <h2>Add Student</h2>
+
+    <form name="studentForm" ng-submit="addStudent()" novalidate>
+
+        Name:
+        <input type="text" ng-model="student.name" required>
+        <span class="error" ng-show="studentForm.$submitted && studentForm.$error.required">
+            Name is required
+        </span>
+        <br>
+
+        Age:
+        <input type="number" ng-model="student.age" min="1" required>
+        <br>
+
+        Course:
+        <input type="text" ng-model="student.course" required>
+        <br>
+
+        <button type="submit">Add Student</button>
+    </form>
+
+    <hr>
+
+    <!-- Student List -->
+    <h2>Student Records</h2>
+
+    <ul>
+        <li ng-repeat="s in students">
+            {{s.name}} - {{s.age}} years - {{s.course}}
+            <button ng-click="deleteStudent($index)">Delete</button>
+        </li>
+    </ul>
+<div class="container">
+    <!-- your full content here -->
+</div>
+</body>
+</html>
