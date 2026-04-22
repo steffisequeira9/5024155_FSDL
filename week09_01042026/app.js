@@ -1,31 +1,46 @@
-var app = angular.module("studentApp", []);
+const express = require("express");
+const mongoose = require("mongoose");
+const path = require("path");
+const User = require("./user");
 
-app.controller("MainController", function($scope) {
+const app = express();
 
-    // Hello world default
-    $scope.name = "";
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-    // Student list
-    $scope.students = [];
+// Serve frontend
+app.use(express.static(__dirname));
 
-    // Add student
-    $scope.addStudent = function() {
+// MongoDB Connection
+mongoose.connect("mongodb+srv://steffisequeira494_db_user:*Yellow0307@cluster0.dsom17y.mongodb.net/myUserDB")
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
+// Routes
 
-        if ($scope.student && $scope.student.name) {
-            $scope.students.push({
-                name: $scope.student.name,
-                age: $scope.student.age,
-                course: $scope.student.course
-            });
+// Home page
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
-            // Clear form
-            $scope.student = {};
-        }
-    };
+// Add user
+app.post("/add", async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.send("User Added ✅");
+  } catch (err) {
+    res.send("Error ❌");
+  }
+});
 
-    // Delete student
-    $scope.deleteStudent = function(index) {
-        $scope.students.splice(index, 1);
-    };
+// Get users
+app.get("/users", async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+});
 
+// Start server
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
 });

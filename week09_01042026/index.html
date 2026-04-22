@@ -1,65 +1,40 @@
 <!DOCTYPE html>
-<html ng-app="studentApp">
+<html>
 <head>
-    <title>AngularJS Hello World</title>
-
-    <!-- AngularJS CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-
-    <script src="app.js"></script>
-<link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: Arial; padding: 20px; }
-        input { margin: 5px; }
-        .error { color: red; }
-    </style>
+  <title>User App</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-<body ng-controller="MainController">
+  <h2>Add User</h2>
 
-    <!-- Hello World -->
-    <h1>Hello {{name || 'World'}} 👋</h1>
+  <form action="/add" method="POST">
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <input type="number" name="age" placeholder="Enter Age" required>
+    <button type="submit">Add</button>
+  </form>
 
-    <input type="text" ng-model="name" placeholder="Enter your name">
+  <br>
 
-    <hr>
+  <button onclick="getUsers()">Show Users</button>
 
-    <!-- Student Form -->
-    <h2>Add Student</h2>
+  <ul id="userList"></ul>
 
-    <form name="studentForm" ng-submit="addStudent()" novalidate>
+  <script>
+    async function getUsers() {
+      const res = await fetch("/users");
+      const data = await res.json();
 
-        Name:
-        <input type="text" ng-model="student.name" required>
-        <span class="error" ng-show="studentForm.$submitted && studentForm.$error.required">
-            Name is required
-        </span>
-        <br>
+      const list = document.getElementById("userList");
+      list.innerHTML = "";
 
-        Age:
-        <input type="number" ng-model="student.age" min="1" required>
-        <br>
+      data.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = user.name + " (" + user.age + ")";
+        list.appendChild(li);
+      });
+    }
+  </script>
 
-        Course:
-        <input type="text" ng-model="student.course" required>
-        <br>
-
-        <button type="submit">Add Student</button>
-    </form>
-
-    <hr>
-
-    <!-- Student List -->
-    <h2>Student Records</h2>
-
-    <ul>
-        <li ng-repeat="s in students">
-            {{s.name}} - {{s.age}} years - {{s.course}}
-            <button ng-click="deleteStudent($index)">Delete</button>
-        </li>
-    </ul>
-<div class="container">
-    <!-- your full content here -->
-</div>
 </body>
 </html>
