@@ -1,0 +1,83 @@
+.navbar {
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color, #334433);
+    background: rgba(10, 15, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+}
+
+.logo-accent {
+    color: var(--accent, #39FF14);
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: #ccc;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+.nav-link:hover {
+    color: var(--accent, #39FF14);
+}
+
+.nav-link-btn {
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    color: var(--accent, #39FF14);
+    border: 1px solid var(--accent, #39FF14);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.1);
+}
+.nav-link-btn:hover {
+    background-color: rgba(57, 255, 20, 0.1);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+}
+
+.logout-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.logout-btn:hover {
+    color: #ff4d4d;
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
+}
+
+@media (max-width: 900px) {
+    .navbar-menu {
+        flex-wrap: wrap;
+    }
+}

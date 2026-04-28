@@ -1,0 +1,75 @@
+.leaderboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  background: var(--card-bg, #111a11);
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid #223322;
+  transition: transform 0.2s ease;
+}
+
+.leaderboard-item:hover {
+  transform: scale(1.02);
+  border-color: #445544;
+}
+
+.leaderboard-item.top-three {
+  border-color: var(--accent, #39FF14);
+  background: rgba(57, 255, 20, 0.05);
+}
+
+.rank {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #888;
+  width: 50px;
+}
+
+.top-three .rank {
+  font-size: 2rem;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info h4 {
+  margin: 0 0 5px 0;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.user-stats-mini {
+  display: flex;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.user-score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent, #39FF14);
+}
+
+.user-score span {
+  font-size: 0.9rem;
+  color: #aaa;
+  font-weight: normal;
+}
